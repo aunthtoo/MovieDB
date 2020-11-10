@@ -1,13 +1,13 @@
-package com.myanmaritc.moviedb.ui.popular
+package com.myanmaritc.moviedb.ui.upcoming
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class PopularViewModel : ViewModel() {
+class UpcomingViewModel : ViewModel(){
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Popular"
+        value = "This is Upcoming"
     }
     val text: LiveData<String> = _text
 }

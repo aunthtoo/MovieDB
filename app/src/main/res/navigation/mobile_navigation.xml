@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_popular"
-        android:name="com.myanmaritc.moviedb.ui.popular.Popular"
+        android:name="com.myanmaritc.moviedb.ui.popular.PopularFragment"
         android:label="@string/menu_popular"
         tools:layout="@layout/fragment_gallery" />
 
@@ -22,4 +22,9 @@
         android:name="com.myanmaritc.moviedb.ui.toprated.TopRatedFragment"
         android:label="@string/menu_top_rated"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_upcoming"
+        android:name="com.myanmaritc.moviedb.ui.upcoming.UpcomingFragment"
+        android:label="@string/menu_upcoming"
+        tools:layout="@layout/fragment_upcoming" />
 </navigation>

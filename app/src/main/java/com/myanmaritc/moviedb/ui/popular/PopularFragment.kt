@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.myanmaritc.moviedb.R
 
-class Popular : Fragment() {
+class PopularFragment : Fragment() {
 
     private lateinit var popularViewModel: PopularViewModel
 
