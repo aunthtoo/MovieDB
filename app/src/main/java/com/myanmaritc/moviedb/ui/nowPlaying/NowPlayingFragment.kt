@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.myanmaritc.moviedb.R
 import com.myanmaritc.moviedb.model.ResultsItem
@@ -38,8 +39,13 @@ class NowPlayingFragment : Fragment() {
         var nowplayingAdapter = MovieAdapter()
 
         recycler_now_playing.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = nowplayingAdapter
+            //layoutManager = LinearLayoutManager(context)
+            //adapter = nowplayingAdapter
+
+           // recycler_now_playing.layoutManager = LinearLayoutManager(context)
+
+            recycler_now_playing.layoutManager = GridLayoutManager(context, 2)
+            recycler_now_playing.adapter = nowplayingAdapter
         }
         nowPlayingViewModel.getNowplaying().observe(viewLifecycleOwner, Observer {nowplaying ->
             nowplayingAdapter.addMovie(nowplaying.results as List<ResultsItem>)
