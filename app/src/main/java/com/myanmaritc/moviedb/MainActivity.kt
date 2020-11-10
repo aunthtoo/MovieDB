@@ -13,6 +13,11 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.myanmaritc.moviedb.api.MovieClient
+import com.myanmaritc.moviedb.model.Movie
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,6 +28,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        /*
+        //get value api
+        var apiClient = MovieClient()
+
+        var apiCall = apiClient.getUpcoming()
+
+        apiCall.enqueue(object : Callback<Movie> {
+            override fun onFailure(call: Call<Movie>, t: Throwable) {
+                text_now_playing.text = t.toString()
+            }
+
+            override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
+                text_now_playing.text = response.toString()
+            }
+
+        })
+
+         */
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
