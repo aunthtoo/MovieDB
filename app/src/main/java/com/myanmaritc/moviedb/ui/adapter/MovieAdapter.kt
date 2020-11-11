@@ -13,13 +13,18 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var movieList: List<ResultsItem> = ArrayList()
 
-    class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    private val baseImg: String = "https://image.tmdb.org/t/p/w500/"
+
+
+   inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         fun bind(resultsItem: ResultsItem){
             Picasso.get()
-                .load(resultsItem.posterPath)
+                .load(baseImg+resultsItem.posterPath)
                 .into(itemView.imgNowPlaying)
             itemView.txtName.text = resultsItem.title
+            itemView.releaseDate.text=resultsItem.releaseDate
+            itemView.voteAverage.text=resultsItem.voteAverage.toString()
         }
     }
 
