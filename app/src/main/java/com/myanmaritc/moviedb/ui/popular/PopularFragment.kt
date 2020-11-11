@@ -9,7 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import com.myanmaritc.moviedb.R
+import com.myanmaritc.moviedb.model.ResultsItem
+import com.myanmaritc.moviedb.ui.adapter.MovieAdapter
+import kotlinx.android.synthetic.main.fragment_popular.*
 
 class PopularFragment : Fragment() {
 
@@ -31,10 +35,24 @@ class PopularFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var popularAdapter = MovieAdapter()
+
+        recycler_popular.apply {
+
+            recycler_popular.layoutManager = GridLayoutManager(context, 2)
+            recycler_popular.adapter = popularAdapter
+        }
+
 
 
         popularViewModel.getPopular().observe(viewLifecycleOwner, Observer { popular ->
 
+            popularAdapter.addMovie(popular.results as List<ResultsItem>)
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        popularViewModel.loadData()
     }
 }
