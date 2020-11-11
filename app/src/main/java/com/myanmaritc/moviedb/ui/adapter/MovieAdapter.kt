@@ -32,9 +32,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             Picasso.get()
                 .load(baseImg+resultsItem.posterPath)
                 .into(itemView.imgMovie)
-            itemView.txtName.text = resultsItem.title
-            itemView.releaseDate.text=resultsItem.releaseDate
-            itemView.voteAverage.text=resultsItem.voteAverage.toString()
+            itemView.tvName.text = resultsItem.title
+            itemView.tvReleaseDate.text=resultsItem.releaseDate
+            itemView.tvVoteAverage.text=resultsItem.voteAverage.toString()
         }
 
        override fun onClick(view: View?) {
@@ -57,7 +57,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     }
 
     //add data
-    fun addMovie(movieList: List<ResultsItem> ) {
+    fun addMovieList(movieList: List<ResultsItem> ) {
         this.movieList = movieList
         notifyDataSetChanged()
     }

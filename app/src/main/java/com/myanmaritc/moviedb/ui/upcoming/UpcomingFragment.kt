@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.myanmaritc.moviedb.R
 import com.myanmaritc.moviedb.model.ResultsItem
 import com.myanmaritc.moviedb.ui.adapter.MovieAdapter
-import com.myanmaritc.moviedb.ui.popular.PopularViewModel
 import kotlinx.android.synthetic.main.fragment_upcoming.*
 
 
@@ -39,12 +38,12 @@ class UpcomingFragment : Fragment(), MovieAdapter.OnClickListener {
         var upcomingAdapter = MovieAdapter()
 
         recycler_upcoming.apply {
-            recycler_upcoming.layoutManager = GridLayoutManager(context, 2)
-            recycler_upcoming.adapter = upcomingAdapter
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = upcomingAdapter
         }
 
         upcomingViewModel.getUpcoming().observe(viewLifecycleOwner, Observer {upcoming ->
-            upcomingAdapter.addMovie(upcoming.results as List<ResultsItem>)
+            upcomingAdapter.addMovieList(upcoming.results as List<ResultsItem>)
 
         })
     }
