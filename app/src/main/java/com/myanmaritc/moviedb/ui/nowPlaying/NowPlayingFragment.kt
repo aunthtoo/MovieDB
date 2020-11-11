@@ -47,7 +47,7 @@ class NowPlayingFragment : Fragment() {
             recycler_now_playing.layoutManager = GridLayoutManager(context, 2)
             recycler_now_playing.adapter = nowplayingAdapter
         }
-        nowPlayingViewModel.getNowplaying().observe(viewLifecycleOwner, Observer {nowplaying ->
+        nowPlayingViewModel.getNowplaying().observe(viewLifecycleOwner, Observer { nowplaying ->
             nowplayingAdapter.addMovie(nowplaying.results as List<ResultsItem>)
         })
 

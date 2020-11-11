@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.myanmaritc.moviedb.R
 import com.myanmaritc.moviedb.model.ResultsItem
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_now_playing.view.*
+import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
@@ -21,7 +21,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         fun bind(resultsItem: ResultsItem){
             Picasso.get()
                 .load(baseImg+resultsItem.posterPath)
-                .into(itemView.imgNowPlaying)
+                .into(itemView.imgMovie)
             itemView.txtName.text = resultsItem.title
             itemView.releaseDate.text=resultsItem.releaseDate
             itemView.voteAverage.text=resultsItem.voteAverage.toString()
@@ -30,7 +30,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_now_playing, parent, false)
+            .inflate(R.layout.item_movie, parent, false)
         return MovieViewHolder(view)
     }
 
