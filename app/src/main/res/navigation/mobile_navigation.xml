@@ -9,22 +9,47 @@
         android:id="@+id/nav_now_playing"
         android:name="com.myanmaritc.moviedb.ui.nowPlaying.NowPlayingFragment"
         android:label="@string/menu_now_playing"
-        tools:layout="@layout/fragment_now_playing" />
+        tools:layout="@layout/fragment_now_playing" >
+        <action
+            android:id="@+id/action_nav_now_playing_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_popular"
         android:name="com.myanmaritc.moviedb.ui.popular.PopularFragment"
         android:label="@string/menu_popular"
-        tools:layout="@layout/fragment_popular" />
+        tools:layout="@layout/fragment_popular" >
+        <action
+            android:id="@+id/action_nav_popular_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_top_rated"
         android:name="com.myanmaritc.moviedb.ui.toprated.TopRatedFragment"
         android:label="@string/menu_top_rated"
-        tools:layout="@layout/fragment_top_rated" />
+        tools:layout="@layout/fragment_top_rated" >
+        <action
+            android:id="@+id/action_nav_top_rated_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_upcoming"
         android:name="com.myanmaritc.moviedb.ui.upcoming.UpcomingFragment"
         android:label="@string/menu_upcoming"
-        tools:layout="@layout/fragment_upcoming" />
+        tools:layout="@layout/fragment_upcoming" >
+        <action
+            android:id="@+id/action_nav_upcoming_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.myanmaritc.moviedb.ui.details.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="item"
+            app:argType="com.myanmaritc.moviedb.model.ResultsItem" />
+    </fragment>
+
 </navigation>

@@ -9,13 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.myanmaritc.moviedb.R
 import com.myanmaritc.moviedb.model.ResultsItem
 import com.myanmaritc.moviedb.ui.adapter.MovieAdapter
 import kotlinx.android.synthetic.main.fragment_popular.*
 
-class PopularFragment : Fragment() {
+class PopularFragment : Fragment(), MovieAdapter.OnClickListener {
 
     private lateinit var popularViewModel: PopularViewModel
 
@@ -54,5 +55,10 @@ class PopularFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         popularViewModel.loadData()
+    }
+
+    override fun onClick(item: ResultsItem) {
+    val directions = PopularFragmentDirections.actionNavPopularToDetailFragment(item)
+        view?.findNavController()?.navigate(directions)
     }
 }

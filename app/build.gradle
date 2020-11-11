@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -60,5 +62,7 @@ dependencies {
 
     //image // picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+
 
 }

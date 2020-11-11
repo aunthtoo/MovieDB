@@ -9,13 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.myanmaritc.moviedb.R
 import com.myanmaritc.moviedb.model.ResultsItem
 import com.myanmaritc.moviedb.ui.adapter.MovieAdapter
 import kotlinx.android.synthetic.main.fragment_top_rated.*
 
-class TopRatedFragment : Fragment() {
+class TopRatedFragment : Fragment(), MovieAdapter.OnClickListener {
 
     private lateinit var topRatedViewModel: TopRatedViewModel
 
@@ -49,5 +50,10 @@ class TopRatedFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         topRatedViewModel.loadData()
+    }
+
+    override fun onClick(item: ResultsItem) {
+        val directions = TopRatedFragmentDirections.actionNavTopRatedToDetailFragment(item)
+        view?.findNavController()?.navigate(directions)
     }
 }

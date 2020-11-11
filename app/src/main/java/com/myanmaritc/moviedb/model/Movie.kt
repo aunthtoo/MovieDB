@@ -1,6 +1,8 @@
 package com.myanmaritc.moviedb.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class Movie(
 
@@ -28,7 +30,7 @@ data class Dates(
 	@field:SerializedName("minimum")
 	val minimum: String? = null
 )
-
+@Parcelize
 data class ResultsItem(
 
 	@field:SerializedName("overview")
@@ -72,4 +74,4 @@ data class ResultsItem(
 
 	@field:SerializedName("vote_count")
 	val voteCount: Int? = null
-)
+): Parcelable

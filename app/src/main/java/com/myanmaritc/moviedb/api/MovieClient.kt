@@ -45,4 +45,10 @@ class MovieClient {
         )
     }
 
+    fun getDetail(): Call<Movie>{
+        return apiInterface.getDetail(
+            "871dd789ec4e60ab37f454f22ceff629"
+        )
+    }
+
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.myanmaritc.moviedb.R
 import com.myanmaritc.moviedb.model.ResultsItem
@@ -15,7 +16,7 @@ import com.myanmaritc.moviedb.ui.popular.PopularViewModel
 import kotlinx.android.synthetic.main.fragment_upcoming.*
 
 
-class UpcomingFragment : Fragment() {
+class UpcomingFragment : Fragment(), MovieAdapter.OnClickListener {
 
     private lateinit var upcomingViewModel: UpcomingViewModel
 
@@ -51,6 +52,11 @@ class UpcomingFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         upcomingViewModel.loadData()
+    }
+
+    override fun onClick(item: ResultsItem) {
+        val directions = UpcomingFragmentDirections.actionNavUpcomingToDetailFragment(item)
+        view?.findNavController()?.navigate(directions)
     }
 
 

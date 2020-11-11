@@ -15,10 +15,20 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private val baseImg: String = "https://image.tmdb.org/t/p/w500/"
 
+    var clickListener: OnClickListener? = null
 
-   inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
+   inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+   View.OnClickListener{
+
+       init {
+           itemView.setOnClickListener(this)
+       }
+
+       lateinit var item: ResultsItem
 
         fun bind(resultsItem: ResultsItem){
+            this.item = resultsItem  //get data
             Picasso.get()
                 .load(baseImg+resultsItem.posterPath)
                 .into(itemView.imgMovie)
@@ -26,7 +36,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             itemView.releaseDate.text=resultsItem.releaseDate
             itemView.voteAverage.text=resultsItem.voteAverage.toString()
         }
-    }
+
+       override fun onClick(view: View?) {
+           clickListener?.onClick(item)
+       }
+   }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -47,4 +61,13 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         this.movieList = movieList
         notifyDataSetChanged()
     }
+
+    interface OnClickListener {
+        fun onClick(item: ResultsItem)
+    }
+
+    fun setOnClickListener(clickListener: OnClickListener){
+        this.clickListener = clickListener
+    }
+
 }

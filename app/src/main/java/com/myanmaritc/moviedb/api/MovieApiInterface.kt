@@ -27,4 +27,9 @@ interface MovieApiInterface {
         @Query("api_key") apiKey: String
     ) :Call<Movie>
 
+    @GET("550")
+    fun getDetail(
+        @Query("api_key") apiKey: String
+    ) :Call<Movie>
+
 }
