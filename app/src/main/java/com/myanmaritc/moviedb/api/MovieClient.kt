@@ -39,8 +39,8 @@ class MovieClient {
         )
     }
 
-    fun getUpcomint(): Call<Movie>{
-        return apiInterface.getUpcomint(
+    fun getUpcoming(): Call<Movie>{
+        return apiInterface.getUpcoming(
             "871dd789ec4e60ab37f454f22ceff629"
         )
     }

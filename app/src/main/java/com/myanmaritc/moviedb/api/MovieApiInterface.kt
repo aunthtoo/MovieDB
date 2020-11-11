@@ -23,7 +23,7 @@ interface MovieApiInterface {
     ) : Call<Movie>
 
     @GET("upcoming")
-    fun getUpcomint(
+    fun getUpcoming(
         @Query("api_key") apiKey: String
     ) :Call<Movie>
 
