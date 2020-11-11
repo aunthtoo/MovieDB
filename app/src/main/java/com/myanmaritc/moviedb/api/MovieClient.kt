@@ -26,4 +26,23 @@ class MovieClient {
             "871dd789ec4e60ab37f454f22ceff629"
         )
     }
+
+    fun getPopular(): Call<Movie> {
+        return apiInterface.getPopular(
+            "871dd789ec4e60ab37f454f22ceff629"
+        )
+    }
+
+    fun getToprated(): Call<Movie>{
+        return apiInterface.getToprated(
+            "871dd789ec4e60ab37f454f22ceff629"
+        )
+    }
+
+    fun getUpcomint(): Call<Movie>{
+        return apiInterface.getUpcomint(
+            "871dd789ec4e60ab37f454f22ceff629"
+        )
+    }
+
 }

@@ -12,4 +12,19 @@ interface MovieApiInterface {
         @Query("api_key") apiKey: String
     ) : Call<Movie>
 
+    @GET("popular")
+    fun getPopular(
+        @Query("api_key") apiKey: String
+    ) : Call<Movie>
+
+    @GET("top_rated")
+    fun getToprated(
+        @Query("api_key") apiKey: String
+    ) : Call<Movie>
+
+    @GET("upcoming")
+    fun getUpcomint(
+        @Query("api_key") apiKey: String
+    ) :Call<Movie>
+
 }
